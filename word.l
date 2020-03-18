@@ -29,7 +29,9 @@ int|if|then|else|while	{
 													printf("word_%d delimiter: %s\n", count, yytext);
 												}
 
-.|\n
+"\x20"|"\x09"|"\x0d"|"\x0a"
+
+.  { printf("error: %c\n", *yytext);}
 
 %%
 
